@@ -1,52 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Фото</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
   margin: 0;
   background: black;
-  color: white;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
-
+#wrap {
+  position: relative;
+}
 #secret {
   display: none;
-  text-align: center;
-}
-
-button {
-  font-size: 18px;
-  padding: 14px 24px;
-  border-radius: 10px;
-  border: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  font-size: 22px;
+  padding: 20px;
 }
 </style>
 </head>
 
 <body>
-
-<button onclick="showSecret()">Нажми</button>
-
-<div id="secret">
-  <h2>🔐 Секретное сообщение</h2>
-  <p> если долго мучится то все получиться </p>
+<div id="wrap">
+  <img src="image.jpg" width="100%">
+  <div id="secret">🔐 ТВОЁ СЕКРЕТНОЕ СООБЩЕНИЕ</div>
 </div>
 
 <script>
-function showSecret() {
-  document.querySelector('button').style.display = 'none';
-  document.getElementById('secret').style.display = 'block';
-}
-</script>
+let t;
+const img = document.querySelector("img");
+const secret = document.getElementById("secret");
 
+img.addEventListener("touchstart", () => {
+  t = setTimeout(() => secret.style.display = "block", 600);
+});
+img.addEventListener("touchend", () => clearTimeout(t));
+</script>
 </body>
 </html>
-
