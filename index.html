@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 body {
   margin: 0;
   background: black;
 }
-#wrap {
+
+#container {
   position: relative;
+  width: 100%;
 }
+
+#container img {
+  width: 100%;
+  display: block;
+}
+
 #secret {
-  display: none;
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.75);
   color: white;
   font-size: 22px;
   padding: 20px;
+  display: none;
 }
 </style>
 </head>
 
 <body>
-<div id="wrap">
-  <img src="image.jpg" width="100%">
-  <div id="secret">🔐 ТВОЁ СЕКРЕТНОЕ СООБЩЕНИЕ</div>
+
+<div id="container">
+  <img src="image.jpg" id="photo">
+  <div id="secret">
+    🔐 СЕКРЕТНОЕ СООБЩЕНИЕ  
+    <br><br>
+    Если ты это видишь — всё получилось 😈
+  </div>
 </div>
 
 <script>
-let t;
-const img = document.querySelector("img");
-const secret = document.getElementById("secret");
-
-img.addEventListener("touchstart", () => {
-  t = setTimeout(() => secret.style.display = "block", 600);
-});
-img.addEventListener("touchend", () => clearTimeout(t));
+document.getElementById("photo").onclick = function () {
+  const s = document.getElementById("secret");
+  s.style.display = (s.style.display === "block") ? "none" : "block";
+};
 </script>
+
 </body>
 </html>
