@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-body {
-  margin: 0;
-  background: black;
-}
-
-#container {
-  position: relative;
-  width: 100%;
-}
-
-#container img {
-  width: 100%;
-  display: block;
-}
-
-#secret {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  color: white;
-  font-size: 22px;
-  padding: 20px;
-  display: none;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стишок про любовь</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff4081;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #e040fb;
+        }
+        .poem {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
 </head>
-
 <body>
 
-<div id="container">
-  <img src="image.jpg" id="photo">
-  <div id="secret">
-    🔐 СЕКРЕТНОЕ СООБЩЕНИЕ  
-    <br><br>
-    Если ты это видишь — всё получилось 😈
-  </div>
+<div class="container">
+    <h1>Нажми на кнопку, чтобы услышать стишок!</h1>
+    <button class="button" onclick="showPoem()">Показать стишок</button>
+    <div class="poem" id="poem"></div>
 </div>
 
 <script>
-document.getElementById("photo").onclick = function () {
-  const s = document.getElementById("secret");
-  s.style.display = (s.style.display === "block") ? "none" : "block";
-};
+    function showPoem() {
+        document.getElementById('poem').innerHTML = `
+            Ты — моя звезда на небе в ночи, <br>
+            В твоих глазах огонь любви горит. <br>
+            Ты — мой смысл, ты — мой светлый мир, <br>
+            Без тебя моя душа молчит.
+        `;
+    }
 </script>
 
 </body>
