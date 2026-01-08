@@ -34,10 +34,11 @@
         .button:hover {
             background-color: #e040fb;
         }
-        .poem {
+        #poem {
             font-size: 18px;
             margin-top: 20px;
             color: #333;
+            display: none;
         }
     </style>
 </head>
@@ -46,17 +47,18 @@
 <div class="container">
     <h1>Нажми на кнопку, чтобы услышать стишок!</h1>
     <button class="button" onclick="showPoem()">Показать стишок</button>
-    <div class="poem" id="poem"></div>
+    <div id="poem" class="poem">
+        <p>Ты — моя звезда на небе в ночи,<br>
+           В твоих глазах огонь любви горит.<br>
+           Ты — мой смысл, ты — мой светлый мир,<br>
+           Без тебя моя душа молчит.</p>
+    </div>
 </div>
 
 <script>
     function showPoem() {
-        document.getElementById('poem').innerHTML = `
-            Ты — моя звезда на небе в ночи, <br>
-            В твоих глазах огонь любви горит. <br>
-            Ты — мой смысл, ты — мой светлый мир, <br>
-            Без тебя моя душа молчит.
-        `;
+        var poem = document.getElementById('poem');
+        poem.style.display = 'block'; // Показываем стих
     }
 </script>
 
